@@ -1,8 +1,8 @@
+
 # ASP.NET Core Developer Roadmap - TODO Checklist
 
-> Source: https://roadmap.sh/aspnet-
-
-Status: Learning Checklist
+> Source: https://roadmap.sh/aspnet-core
+> Status: Learning Checklist
 
 ---
 
@@ -45,7 +45,7 @@ Status: Learning Checklist
 - [x] Conditionals
 - [x] Loops
 - [x] Methods
-- [] Arrays
+- [x] Arrays
 - [ ] Collections
 - [ ] Exception Handling
 
@@ -66,7 +66,7 @@ Status: Learning Checklist
 - [ ] Lambda Expressions
 - [ ] LINQ
 - [ ] Extension Methods
-- [ ] Nullable Reference Types
+- [x] Nullable Reference Types
 - [ ] Records
 - [ ] Pattern Matching
 - [ ] Async / Await
@@ -121,16 +121,16 @@ Status: Learning Checklist
 
 ## Database Fundamentals
 
-- [ ] Primary Key
-- [ ] Foreign Key
-- [ ] Constraints
+- [x] Primary Key
+- [x] Foreign Key
+- [x] Constraints
 - [ ] Indexes
 - [ ] Transactions
 - [ ] Normalization
 
 ## Database Design
 
-- [ ] ER Diagram
+- [x]  ER Diagram
 - [ ] One-to-One
 - [ ] One-to-Many
 - [ ] Many-to-Many
@@ -145,15 +145,15 @@ Status: Learning Checklist
 
 # Data Structures & Algorithms
 
-- [ ] Arrays
-- [ ] Linked Lists
-- [ ] Stack
-- [ ] Queue
-- [ ] Trees
-- [ ] Graphs
-- [ ] Hash Tables
-- [ ] Sorting
-- [ ] Searching
+- [x] Arrays
+- [x] Linked Lists
+- [x] Stack
+- [x] Queue
+- [x] Trees
+- [x] Graphs
+- [x] Hash Tables
+- [x] Sorting
+- [x] Searching
 
 ---
 
@@ -472,4 +472,3 @@ Status: Learning Checklist
 - [ ] Learn System Design
 - [ ] Learn Performance Optimization
 - [ ] Build Production Ready Applications
-# Learning-Progress-of-Development
