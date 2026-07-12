@@ -131,9 +131,9 @@
 ## Database Design
 
 - [x]  ER Diagram
-- [ ] One-to-One
-- [ ] One-to-Many
-- [ ] Many-to-Many
+- [x] One-to-One
+- [x] One-to-Many
+- [x] Many-to-Many
 
 ## Advanced SQL
 
