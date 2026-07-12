@@ -1,7 +1,8 @@
 # ASP.NET Core Developer Roadmap - TODO Checklist
 
-> Source: https://roadmap.sh/aspnet-core
-> Status: Learning Checklist
+> Source: https://roadmap.sh/aspnet-
+
+Status: Learning Checklist
 
 ---
 
