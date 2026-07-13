@@ -13,7 +13,6 @@ flowchart LR
     CHATROOMS[CHAT ROOMS]
     CHATMESSAGES[CHAT MESSAGES]
 
-
     %% Relationships (Diamonds)
     EXTENDS1{EXTENDS}
     EXTENDS2{EXTENDS}
@@ -23,48 +22,44 @@ flowchart LR
     UPLOADS{UPLOADS}
     PLACES{PLACES}
     PAYS{PAYS}
-    CONTAINS{CONTAINS}
+    CONTAINS1{CONTAINS}
+    CONTAINS2{CONTAINS}
     SENDS{SENDS}
 
+    %% Relationships with Cardinality
 
-    %% Relationships
-    USERS --- EXTENDS1
-    EXTENDS1 --- PATIENTS
+    USERS -- "1" --- EXTENDS1
+    EXTENDS1 -- "1" --- PATIENTS
 
-    USERS --- EXTENDS2
-    EXTENDS2 --- DOCTORS
+    USERS -- "1" --- EXTENDS2
+    EXTENDS2 -- "1" --- DOCTORS
+
+    PATIENTS -- "1" --- BOOKS
+    BOOKS -- "Many" --- APPOINTMENTS
+
+    DOCTORS -- "1" --- ATTENDS
+    ATTENDS -- "Many" --- APPOINTMENTS
+
+    PATIENTS -- "1" --- OWNS
+    OWNS -- "Many" --- MEDICALREPORTS
+
+    USERS -- "1" --- UPLOADS
+    UPLOADS -- "Many" --- MEDICALREPORTS
+
+    USERS -- "1" --- PLACES
+    PLACES -- "Many" --- ORDERS
+
+    ORDERS -- "1" --- PAYS
+    PAYS -- "1" --- PAYMENTS
+
+    ORDERS -- "Many" --- CONTAINS1
+    CONTAINS1 -- "Many" --- PRODUCTS
+
+    USERS -- "1" --- SENDS
+    SENDS -- "Many" --- CHATMESSAGES
+
+    CHATROOMS -- "1" --- CONTAINS2
+    CONTAINS2 -- "Many" --- CHATMESSAGES
 
 
-    PATIENTS --- BOOKS
-    BOOKS --- APPOINTMENTS
-
-    DOCTORS --- ATTENDS
-    ATTENDS --- APPOINTMENTS
-
-
-    PATIENTS --- OWNS
-    OWNS --- MEDICALREPORTS
-
-    USERS --- UPLOADS
-    UPLOADS --- MEDICALREPORTS
-
-
-    USERS --- PLACES
-    PLACES --- ORDERS
-
-
-    ORDERS --- PAYS
-    PAYS --- PAYMENTS
-
-
-    ORDERS --- CONTAINS
-    CONTAINS --- PRODUCTS
-
-
-    USERS --- SENDS
-    SENDS --- CHATMESSAGES
-
-    CHATROOMS --- CONTAINS
-    CONTAINS --- CHATMESSAGES
-    
 ```
