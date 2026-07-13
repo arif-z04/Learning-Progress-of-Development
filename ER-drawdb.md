@@ -1,206 +1,252 @@
+# Sunshine Mental Health Counciling and Therapy Platform - Database ER Diagram
+
 ```mermaid
 erDiagram
-	patients ||--|| users : references
-	doctors ||--|| users : references
-	medical_reports }o--|| patients : references
-	medical_reports }o--|| users : references
-	doctor_availability }o--|| doctors : references
-	appointments }o--|| patients : references
-	appointments }o--|| doctors : references
-	appointments }o--|| payments : references
-	session_notes ||--|| appointments : references
-	session_notes }o--|| doctors : references
-	carts ||--|| users : references
-	cart_items }o--|| carts : references
-	cart_items }o--|| products : references
-	orders }o--|| users : references
-	orders }o--|| payments : references
-	order_items }o--|| orders : references
-	order_items }o--|| products : references
-	payments }o--|| users : references
-	chat_rooms }o--|| users : references
-	chat_rooms }o--|| users : references
-	chat_rooms ||--|| appointments : references
-	chat_messages }o--|| chat_rooms : references
-	chat_messages }o--|| users : references
-	audit_logs }o--|| users : references
-	notifications }o--|| users : references
 
-	users {
-		UUID id
-		VARCHAR(255) email
-		VARCHAR(30) phone_number
-		VARCHAR(255) password_hash
-		ROLE role
-		BOOLEAN is_active
-		BOOLEAN is_deleted
-		TIMESTAMP created_at
-		TIMESTAMP updated_at
-		BOOLEAN email_confirmed
-		BOOLEAN phone_confirmed
-	}
+    USERS {
+        uuid Id PK
+        string Email
+        string PhoneNumber
+        string PasswordHash
+        bool IsActive
+        bool IsDeleted
+        datetime CreatedAt
+        datetime UpdatedAt
+        bool EmailConfirmed
+        bool PhoneConfirmed
+    }
 
-	patients {
-		UUID id
-		UUID user_id
-		VARCHAR(150) full_name
-		DATE date_of_birth
-		VARCHAR(20) gender
-		VARCHAR(150) emergency_contact_name
-		VARCHAR(30) emergency_contact_phone
-		TEXT address
-		TIMESTAMP consent_accepted_at
-	}
+    ROLES {
+        int RoleId PK
+        string RoleName
+        int HierarchyLevel
+        string Description
+    }
 
-	doctors {
-		UUID id
-		UUID user_id
-		VARCHAR(150) full_name
-		VARCHAR(150) specialization
-		TEXT bio
-		INT experience_years
-		DECIMAL(10) consultation_fee
-		VERIFICATION_STATUS verification_status
-		VARCHAR(500) verification_document_url
-		BOOLEAN is_accepting_patients
-	}
+    USERROLES {
+        uuid Id PK
+        uuid UserId FK
+        int RoleId FK
+        uuid AssignedBy FK
+        datetime AssignedAt
+        bool IsActive
+    }
 
-	medical_reports {
-		UUID id
-		UUID patient_id
-		UUID uploaded_by_user_id
-		VARCHAR(500) file_url
-		DATE report_date
-		VARCHAR(150) doctor_name
-		TEXT notes
-		TIMESTAMP created_at
-	}
+    STAFFPROFILES {
+        uuid Id PK
+        uuid UserId FK
+        string EmployeeId
+        string Department
+        string Position
+        bool IsSuperAdmin
+        datetime HireDate
+    }
 
-	doctor_availability {
-		UUID id
-		UUID doctor_id
-		VARCHAR(20) day_of_week
-		DATE specific_date
-		TIME start_time
-		TIME end_time
-		BOOLEAN is_blocked
-	}
+    PATIENTS {
+        uuid Id PK
+        uuid UserId FK
+        string FullName
+        string ContactPhone
+        date DateOfBirth
+        string Gender
+        string EmergencyContactName
+        string EmergencyContactPhone
+        string Address
+        datetime ConsentAcceptedAt
+    }
 
-	appointments {
-		UUID id
-		UUID patient_id
-		UUID doctor_id
-		TIMESTAMP scheduled_at
-		INT duration_minutes
-		APPOINTMENT_STATUS status
-		SESSION_TYPE session_type
-		VARCHAR(500) video_link
-		UUID payment_id
-		TIMESTAMP created_at
-	}
+    DOCTORS {
+        uuid Id PK
+        uuid UserId FK
+        string FullName
+        string Specialization
+        string Bio
+        int ExperienceYears
+        decimal ConsultationFee
+        string VerificationStatus
+        string VerificationDocumentUrl
+        bool IsAcceptingPatients
+    }
 
-	session_notes {
-		UUID id
-		UUID appointment_id
-		UUID doctor_id
-		TEXT private_notes
-		TEXT shared_summary
-		TIMESTAMP created_at
-	}
+    MEDICALREPORTS {
+        uuid Id PK
+        uuid PatientId FK
+        uuid UploadedByUserId FK
+        string FileUrl
+        date ReportDate
+        string DoctorName
+        string Notes
+        datetime CreatedAt
+    }
 
-	products {
-		UUID id
-		VARCHAR(200) name
-		TEXT description
-		PRODUCT_CATEGORY category
-		DECIMAL(10) price
-		INT stock_count
-		BOOLEAN requires_prescription
-		VARCHAR(500) image_url
-		BOOLEAN is_active
-	}
+    DOCTORAVAILABILITY {
+        uuid Id PK
+        uuid DoctorId FK
+        string DayOfWeek
+        date SpecificDate
+        time StartTime
+        time EndTime
+        bool IsBlocked
+    }
 
-	carts {
-		UUID id
-		UUID user_id
-	}
+    APPOINTMENTS {
+        uuid Id PK
+        uuid PatientId FK
+        uuid DoctorId FK
+        datetime ScheduledAt
+        int DurationMinutes
+        string Status
+        string SessionType
+        string VideoLink
+        uuid PaymentId FK
+        datetime CreatedAt
+    }
 
-	cart_items {
-		UUID id
-		UUID cart_id
-		UUID product_id
-		INT quantity
-	}
+    SESSIONNOTES {
+        uuid Id PK
+        uuid AppointmentId FK
+        uuid DoctorId FK
+        string PrivateNotes
+        string SharedSummary
+        datetime CreatedAt
+    }
 
-	orders {
-		UUID id
-		UUID user_id
-		TIMESTAMP order_date
-		ORDER_STATUS status
-		DECIMAL(10) total_amount
-		UUID payment_id
-		TEXT shipping_address
-	}
+    PRODUCTS {
+        uuid Id PK
+        string Name
+        string Description
+        string Category
+        decimal Price
+        int StockCount
+        bool RequiresPrescription
+        string ImageUrl
+        bool IsActive
+    }
 
-	order_items {
-		UUID id
-		UUID order_id
-		UUID product_id
-		INT quantity
-		DECIMAL(10) unit_price_at_purchase
-	}
+    CARTS {
+        uuid Id PK
+        uuid UserId FK
+    }
 
-	payments {
-		UUID id
-		UUID user_id
-		DECIMAL(10) amount
-		VARCHAR(50) provider
-		VARCHAR(150) transaction_id
-		PAYMENT_STATUS status
-		PAYMENT_PURPOSE purpose
-		TIMESTAMP created_at
-	}
+    CARTITEMS {
+        uuid Id PK
+        uuid CartId FK
+        uuid ProductId FK
+        int Quantity
+    }
 
-	chat_rooms {
-		UUID id
-		CHAT_ROOM_TYPE type
-		UUID participant_a_id
-		UUID participant_b_id
-		UUID related_appointment_id
-		BOOLEAN is_locked
-		TIMESTAMP created_at
-	}
+    ORDERS {
+        uuid Id PK
+        uuid UserId FK
+        datetime OrderDate
+        string Status
+        decimal TotalAmount
+        uuid PaymentId FK
+        string ShippingAddress
+    }
 
-	chat_messages {
-		UUID id
-		UUID chat_room_id
-		UUID sender_id
-		TEXT content
-		VARCHAR(500) attachment_url
-		TIMESTAMP sent_at
-		BOOLEAN is_read
-		BOOLEAN is_flagged
-	}
+    ORDERITEMS {
+        uuid Id PK
+        uuid OrderId FK
+        uuid ProductId FK
+        int Quantity
+        decimal UnitPriceAtPurchase
+    }
 
-	audit_logs {
-		UUID id
-		UUID user_id
-		VARCHAR(100) action
-		VARCHAR(100) entity_name
-		UUID entity_id
-		JSON old_value
-		JSON new_value
-		TIMESTAMP timestamp
-	}
+    PAYMENTS {
+        uuid Id PK
+        uuid UserId FK
+        decimal Amount
+        string Provider
+        string TransactionId
+        string Status
+        string Purpose
+        datetime CreatedAt
+    }
 
-	notifications {
-		UUID id
-		UUID user_id
-		VARCHAR(200) title
-		TEXT message
-		NOTIFICATION_TYPE type
-		BOOLEAN is_read
-		TIMESTAMP created_at
-	}
+    CHATROOMS {
+        uuid Id PK
+        string Type
+        uuid ParticipantAId FK
+        uuid ParticipantBId FK
+        uuid RelatedAppointmentId FK
+        bool IsLocked
+        datetime CreatedAt
+    }
 
+    CHATMESSAGES {
+        uuid Id PK
+        uuid ChatRoomId FK
+        uuid SenderId FK
+        string Content
+        string AttachmentUrl
+        datetime SentAt
+        bool IsRead
+        bool IsFlagged
+    }
+
+    AUDITLOGS {
+        uuid Id PK
+        uuid UserId FK
+        string Action
+        string EntityName
+        uuid EntityId
+        json OldValue
+        json NewValue
+        datetime Timestamp
+    }
+
+    NOTIFICATIONS {
+        uuid Id PK
+        uuid UserId FK
+        string Title
+        string Message
+        string Type
+        bool IsRead
+        datetime CreatedAt
+    }
+
+    %% Relationships
+
+    USERS ||--o| PATIENTS : extends
+    USERS ||--o| DOCTORS : extends
+    USERS ||--o| STAFFPROFILES : staff_profile
+
+    USERS ||--o{ USERROLES : assigned
+    ROLES ||--o{ USERROLES : contains
+    USERS ||--o{ USERROLES : assigned_by
+
+    USERS ||--o{ MEDICALREPORTS : uploads
+    PATIENTS ||--o{ MEDICALREPORTS : owns
+
+    DOCTORS ||--o{ DOCTORAVAILABILITY : defines
+
+    PATIENTS ||--o{ APPOINTMENTS : books
+    DOCTORS ||--o{ APPOINTMENTS : attends
+
+    APPOINTMENTS |o--o| SESSIONNOTES : has
+    DOCTORS ||--o{ SESSIONNOTES : writes
+
+    APPOINTMENTS }o--o| PAYMENTS : paid_via
+
+    USERS ||--o| CARTS : owns
+    CARTS ||--o{ CARTITEMS : contains
+    PRODUCTS ||--o{ CARTITEMS : referenced
+
+    USERS ||--o{ ORDERS : places
+    ORDERS ||--o{ ORDERITEMS : contains
+    PRODUCTS ||--o{ ORDERITEMS : purchased
+
+    ORDERS }o--o| PAYMENTS : paid_via
+    USERS ||--o{ PAYMENTS : makes
+
+    USERS ||--o{ CHATROOMS : participant_A
+    USERS ||--o{ CHATROOMS : participant_B
+    APPOINTMENTS |o--o| CHATROOMS : linked_to
+
+    CHATROOMS ||--o{ CHATMESSAGES : contains
+    USERS ||--o{ CHATMESSAGES : sends
+
+    USERS ||--o{ AUDITLOGS : audited
+    USERS ||--o{ NOTIFICATIONS : receives
 ```
