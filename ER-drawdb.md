@@ -1,5 +1,7 @@
 # Sunshine Mental Health Counciling and Therapy Platform - Database ER Diagram
 
+> Note: This is initial database design, still need to work on it.
+
 ```mermaid
 erDiagram
 
