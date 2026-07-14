@@ -1,0 +1,29 @@
+
+{
+    "title": "Notes on my Journey of Learning Development",
+    "description": "A comprehensive guide how I developed my skills on System Design, Database Management System, and Web Development.",
+    "author": "S M Arifuzzaman",
+    "language": "en",
+    "gitbook": "3.2.3",
+    
+    "structure": {
+        "readme": "README.md",
+        "summary": "SUMMARY.md"
+    },
+    
+    "plugins": [
+        "theme-default",
+        "search",
+        "github"
+    ],
+    
+    "pluginsConfig": {
+        "github": {
+            "url": "https://github.com/arif-z04/Learning-Progress-of-Development/tree/main/Notes"
+        }
+    },
+    
+    "styles": {
+        "website": "styles/website.css"
+    }
+}
