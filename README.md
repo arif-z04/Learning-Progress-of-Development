@@ -17,26 +17,26 @@ difficult topics after building a real application.
 
 ## 0. Learning Habits & Developer Workflow
 
--   [ ] Set a realistic weekly learning schedule.
--   [ ] Learn to read official documentation and error messages.
--   [ ] Break large tasks into small, testable steps.
--   [ ] Keep a learning journal with concepts, mistakes, and fixes.
--   [ ] Learn to ask useful technical questions and provide reproducible
+-   [x] Set a realistic weekly learning schedule.
+-   [x] Learn to read official documentation and error messages.
+-   [x] Break large tasks into small, testable steps.
+-   [x] Keep a learning journal with concepts, mistakes, and fixes.
+-   [x] Learn to ask useful technical questions and provide reproducible
     examples.
--   [ ] Practice debugging before searching for a complete solution.
--   [ ] Use spaced repetition for important concepts.
--   [ ] Learn to estimate tasks and record what took longer than
+-   [x] Practice debugging before searching for a complete solution.
+-   [x] Use spaced repetition for important concepts.
+-   [x] Learn to estimate tasks and record what took longer than
     expected.
--   [ ] Write clear README files and setup instructions.
--   [ ] Learn to distinguish a quick prototype from production-ready
+-   [x] Write clear README files and setup instructions.
+-   [x] Learn to distinguish a quick prototype from production-ready
     software.
 
 ## 1. Computer, Internet & Command-Line Fundamentals
 
 ### Computer and operating-system basics
 
--   [ ] Understand CPU, RAM, storage, processes, and threads.
--   [ ] Understand binary, bits, bytes, and common data-size units.
+-   [x] Understand CPU, RAM, storage, processes, and threads.
+-   [x] Understand binary, bits, bytes, and common data-size units.
 -   [ ] Understand files, directories, paths, permissions, and
     environment variables.
 -   [ ] Understand processes, signals, services, and logs.
@@ -51,7 +51,7 @@ difficult topics after building a real application.
 
 ### Networking and the Internet
 
--   [ ] Understand client-server architecture.
+-   [x] Understand client-server architecture.
 -   [ ] Understand LAN, WAN, routers, switches, and NAT at a high level.
 -   [ ] Understand IP addresses, ports, TCP, UDP, and sockets.
 -   [ ] Understand DNS resolution and DNS records.
