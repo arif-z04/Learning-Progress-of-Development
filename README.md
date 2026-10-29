@@ -37,9 +37,9 @@ difficult topics after building a real application.
 
 -   [x] Understand CPU, RAM, storage, processes, and threads.
 -   [x] Understand binary, bits, bytes, and common data-size units.
--   [ ] Understand files, directories, paths, permissions, and
+-   [x] Understand files, directories, paths, permissions, and
     environment variables.
--   [ ] Understand processes, signals, services, and logs.
+-   [x] Understand processes, signals, services, and logs.
 -   [ ] Understand memory use, CPU use, disk I/O, and basic resource
     monitoring.
 -   [ ] Learn Linux terminal navigation and file operations.
