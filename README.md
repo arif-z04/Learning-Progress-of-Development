@@ -40,9 +40,9 @@ difficult topics after building a real application.
 -   [x] Understand files, directories, paths, permissions, and
     environment variables.
 -   [x] Understand processes, signals, services, and logs.
--   [ ] Understand memory use, CPU use, disk I/O, and basic resource
+-   [x] Understand memory use, CPU use, disk I/O, and basic resource
     monitoring.
--   [ ] Learn Linux terminal navigation and file operations.
+-   [x] Learn Linux terminal navigation and file operations.
 -   [ ] Learn pipes, redirection, grep, find, sed, awk, and command
     chaining.
 -   [ ] Learn shell scripting basics.
